@@ -1,11 +1,5 @@
 package main
 
-func min(a int, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 func minSideJumps(obstacles []int) int {
 	n := len(obstacles)
 	f := make([][3]int, n)
@@ -17,6 +11,12 @@ func minSideJumps(obstacles []int) int {
 	f[0][0] = 1
 	f[0][2] = 1
 	f[0][1] = 0
+	var min = func(a, b int) int {
+		if a < b {
+			return a
+		}
+		return b
+	}
 	for i := 1; i < n; i++ {
 		if obstacles[i] != 1 {
 			f[i][0] = f[i-1][0]

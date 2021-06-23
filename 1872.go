@@ -1,12 +1,5 @@
 package main
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 func stoneGameVIII(stones []int) int {
 	n := len(stones)
 	sum := make([]int, n)
@@ -19,6 +12,12 @@ func stoneGameVIII(stones []int) int {
 	}
 	f := make([]int, n)
 	f[n-1] = sum[n-1]
+	var max = func(a, b int) int {
+		if a > b {
+			return a
+		}
+		return b
+	}
 	for i := n - 2; i > 0; i-- {
 		f[i] = max(f[i+1], sum[i]-f[i+1])
 	}

@@ -3,5 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("hello ")
+	var a [][]string
+	b := []string{"hell", "good"}
+	a = append(a, b)
+	b[1] = "not"
+	fmt.Println(a)
 }
