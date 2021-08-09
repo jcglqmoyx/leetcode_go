@@ -1,6 +1,12 @@
 package main
 
 func firstMissingPositive(nums []int) int {
+	var abs = func(a int) int {
+		if a >= 0 {
+			return a
+		}
+		return -a
+	}
 	n := len(nums)
 	for i := 0; i < n; i++ {
 		if nums[i] <= 0 || nums[i] > n {
